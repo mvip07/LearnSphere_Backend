@@ -2,6 +2,8 @@ import { NestFactory } from '@nestjs/core';
 import { ConfigService } from '@nestjs/config';
 import { NestExpressApplication } from '@nestjs/platform-express';
 import { ValidationPipe, BadRequestException, ValidationError } from '@nestjs/common';
+import { ExpressAdapter } from '@nestjs/platform-express';
+import * as express from 'express';
 
 import { join } from 'path';
 import * as dotenv from 'dotenv';
@@ -11,8 +13,16 @@ import { AppModule } from './app.module';
 
 dotenv.config();
 
-async function bootstrap() {
-    const app = await NestFactory.create<NestExpressApplication>(AppModule);
+const server = express();
+let appInstance: NestExpressApplication;
+
+async function bootstrapServer() {
+    if (appInstance) return appInstance;
+
+    const app = await NestFactory.create<NestExpressApplication>(
+        AppModule,
+        new ExpressAdapter(server),
+    );
     const configService = app.get(ConfigService);
 
     app.enableCors({
@@ -23,9 +33,9 @@ async function bootstrap() {
 
     const firebaseConfig = {
         credential: admin.credential.cert({
-            "projectId": process.env.PROJECT_ID,
-            "privateKey": process.env.PRIVATE_KEY,
-            "clientEmail": process.env.CLIENT_EMAIL,
+            projectId: process.env.PROJECT_ID,
+            privateKey: process.env.PRIVATE_KEY?.replace(/\\n/g, '\n'),
+            clientEmail: process.env.CLIENT_EMAIL,
         }),
         storageBucket: process.env.FIREBASE_STORAGE_BUCKET,
     };
@@ -79,6 +89,12 @@ async function bootstrap() {
         })
     );
 
-    await app.listen(configService.get<number>('PORT'));
+    await app.init();
+    appInstance = app;
+    return app;
 }
-bootstrap();
+
+export default async function handler(req: any, res: any) {
+    const app = await bootstrapServer();
+    return server(req, res);
+}
