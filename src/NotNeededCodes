@@ -1,0 +1,26 @@
+// @UseInterceptors(
+//     FileInterceptor('image', {
+//         storage: diskStorage({
+//             destination: './uploads/categories',
+//             filename: (req, file, callback) => {
+//                 const uniqueSuffix = Date.now() + '-' + Math.round(Math.random() * 1e9);
+//                 const ext = extname(file.originalname).toLowerCase();
+//                 callback(null, `${file.fieldname}-${uniqueSuffix}${ext}`);
+//             },
+//         }),
+//         fileFilter: (req, file, callback) => {
+//             const validFormats = ['image/png', 'image/jpeg', 'image/jpg'];
+//             if (!file) {
+//                 callback(new HttpException('Image file is required', HttpStatus.BAD_REQUEST), false);
+//             } else if (validFormats.includes(file.mimetype)) {
+//                 callback(null, true);
+//             } else {
+//                 callback(
+//                     new HttpException('Only png, jpg, and jpeg formats are allowed', HttpStatus.BAD_REQUEST),
+//                     false,
+//                 );
+//             }
+//         },
+//         limits: { fileSize: 5 * 1024 * 1024 },
+//     }),
+// )
