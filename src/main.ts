@@ -1,8 +1,7 @@
 import { NestFactory } from '@nestjs/core';
+import { ConfigService } from '@nestjs/config';
 import { NestExpressApplication } from '@nestjs/platform-express';
 import { ValidationPipe, BadRequestException, ValidationError } from '@nestjs/common';
-import { ExpressAdapter } from '@nestjs/platform-express';
-import * as express from 'express';
 
 import { join } from 'path';
 import * as dotenv from 'dotenv';
@@ -12,16 +11,9 @@ import { AppModule } from './app.module';
 
 dotenv.config();
 
-const server = express();
-let appInstance: NestExpressApplication;
-
-async function bootstrapServer() {
-    if (appInstance) return appInstance;
-
-    const app = await NestFactory.create<NestExpressApplication>(
-        AppModule,
-        new ExpressAdapter(server),
-    );
+async function bootstrap() {
+    const app = await NestFactory.create<NestExpressApplication>(AppModule);
+    const configService = app.get(ConfigService);
 
     app.enableCors({
         origin: [process.env.FRONTEND_URL],
@@ -31,9 +23,9 @@ async function bootstrapServer() {
 
     const firebaseConfig = {
         credential: admin.credential.cert({
-            projectId: process.env.PROJECT_ID,
-            privateKey: process.env.PRIVATE_KEY,
-            clientEmail: process.env.CLIENT_EMAIL,
+            "projectId": process.env.PROJECT_ID,
+            "privateKey": process.env.PRIVATE_KEY,
+            "clientEmail": process.env.CLIENT_EMAIL,
         }),
         storageBucket: process.env.FIREBASE_STORAGE_BUCKET,
     };
@@ -50,8 +42,8 @@ async function bootstrapServer() {
         prefix: '/uploads/',
     });
 
-    app.useGlobalPipes(new ValidationPipe(
-        {
+    app.useGlobalPipes(
+        new ValidationPipe({
             whitelist: true,
             transform: true,
             forbidNonWhitelisted: true,
@@ -84,15 +76,9 @@ async function bootstrapServer() {
                     message: 'Unexpected validation error occurred',
                 });
             },
-        }
-    ));
+        })
+    );
 
-    await app.init();
-    appInstance = app;
-    return app;
+    await app.listen(configService.get<number>('PORT'));
 }
-
-export default async function handler(req: any, res: any) {
-    const app = await bootstrapServer();
-    return server(req, res);
-}
+bootstrap();
