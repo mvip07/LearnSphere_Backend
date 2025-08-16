@@ -1,5 +1,4 @@
 import { NestFactory } from '@nestjs/core';
-import { ConfigService } from '@nestjs/config';
 import { NestExpressApplication } from '@nestjs/platform-express';
 import { ValidationPipe, BadRequestException, ValidationError } from '@nestjs/common';
 import { ExpressAdapter } from '@nestjs/platform-express';
@@ -23,7 +22,6 @@ async function bootstrapServer() {
         AppModule,
         new ExpressAdapter(server),
     );
-    const configService = app.get(ConfigService);
 
     app.enableCors({
         origin: [process.env.FRONTEND_URL],
@@ -34,7 +32,7 @@ async function bootstrapServer() {
     const firebaseConfig = {
         credential: admin.credential.cert({
             projectId: process.env.PROJECT_ID,
-            privateKey: process.env.PRIVATE_KEY?.replace(/\\n/g, '\n'),
+            privateKey: process.env.PRIVATE_KEY,
             clientEmail: process.env.CLIENT_EMAIL,
         }),
         storageBucket: process.env.FIREBASE_STORAGE_BUCKET,
@@ -52,8 +50,8 @@ async function bootstrapServer() {
         prefix: '/uploads/',
     });
 
-    app.useGlobalPipes(
-        new ValidationPipe({
+    app.useGlobalPipes(new ValidationPipe(
+        {
             whitelist: true,
             transform: true,
             forbidNonWhitelisted: true,
@@ -86,8 +84,8 @@ async function bootstrapServer() {
                     message: 'Unexpected validation error occurred',
                 });
             },
-        })
-    );
+        }
+    ));
 
     await app.init();
     appInstance = app;
