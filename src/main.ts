@@ -99,9 +99,11 @@ async function createServer() {
     return serverlessExpress({ app: app.getHttpAdapter().getInstance() });
 }
 
-export const handler: Handler = async (event: any, context: Context, callback: Callback) => {
+const handler: Handler = async (event: any, context: Context, callback: Callback) => {
     if (!server) {
         server = await createServer();
     }
     return server(event, context, callback);
 };
+
+export default handler; 
