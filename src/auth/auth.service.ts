@@ -1,8 +1,8 @@
 import Mailgen from 'mailgen';
+import nodemailer from 'nodemailer';
 import * as crypto from 'crypto';
 import * as bcrypt from 'bcryptjs';
 import * as jwt from 'jsonwebtoken';
-import * as nodemailer from 'nodemailer';
 import { Model, Types } from 'mongoose';
 import { Injectable, HttpException, HttpStatus } from '@nestjs/common';
 
