@@ -1,8 +1,6 @@
+import { Types } from 'mongoose';
 import { Type } from 'class-transformer';
 import { IsArray, IsDateString, IsMongoId, IsNotEmpty, IsOptional, IsString, ValidateNested } from 'class-validator';
-import { Answer } from './answer.schema';
-import { Question } from 'src/question/dto/question.schema';
-import { Types } from 'mongoose';
 
 class AnswerItemDto {
     @IsMongoId({ message: 'questionId invalid format' })

@@ -1,7 +1,7 @@
 import { Controller, Delete, Get, Param, Post, HttpStatus, HttpCode, ValidationPipe, UsePipes, UseGuards } from '@nestjs/common';
 import { FollowService } from './follow.service';
-import { RolesGuard } from 'src/guards/roles.guard';
-import { AuthGuard } from 'src/guards/auth.guard';
+import { RolesGuard } from '../guards/roles.guard';
+import { AuthGuard } from '../guards/auth.guard';
 
 @Controller('follow')
 @UseGuards(AuthGuard, RolesGuard)

@@ -6,8 +6,8 @@ import * as jwt from 'jsonwebtoken';
 import { Model, Types } from 'mongoose';
 import { Injectable, HttpException, HttpStatus } from '@nestjs/common';
 
-import { Role, RolesDocument } from 'src/roles/dto/roles.schema';
-import { User, UsersDocument } from 'src/users/dto/users.schema';
+import { Role, RolesDocument } from '../roles/dto/roles.schema';
+import { User, UsersDocument } from '../users/dto/users.schema';
 import { UsersDto, LoginDto, ResetPasswordDto, SendVerificationCodeDto, ConfirmVerificationCodeDto, EmailData } from './dto/auth.dto';
 
 import { google } from 'googleapis';

@@ -3,10 +3,10 @@ import { MongooseModule } from '@nestjs/mongoose';
 import { RolesService } from './roles.service';
 import { RolesController } from './roles.controller';
 import { Role, RoleSchema } from './dto/roles.schema';
-import { Permission, PermissionSchema } from 'src/permissions/dto/permissions.schema';
-import { User, UserSchema } from 'src/users/dto/users.schema';
-import { AuthGuard } from 'src/guards/auth.guard';
-import { RolesGuard } from 'src/guards/roles.guard';
+import { Permission, PermissionSchema } from '../permissions/dto/permissions.schema';
+import { User, UserSchema } from '../users/dto/users.schema';
+import { AuthGuard } from '../guards/auth.guard';
+import { RolesGuard } from '../guards/roles.guard';
 
 @Module({
     imports: [

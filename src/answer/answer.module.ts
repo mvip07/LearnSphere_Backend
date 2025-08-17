@@ -3,12 +3,12 @@ import { AnswerService } from './answer.service';
 import { MongooseModule } from '@nestjs/mongoose';
 import { AnswerController } from './answer.controller';
 import { Answer, AnswerSchema } from './dto/answer.schema';
-import { User, UserSchema } from 'src/users/dto/users.schema';
-import { Question, QuestionSchema } from 'src/question/dto/question.schema';
-import { Role, RoleSchema } from 'src/roles/dto/roles.schema';
-import { Permission, PermissionSchema } from 'src/permissions/dto/permissions.schema';
-import { AuthGuard } from 'src/guards/auth.guard';
-import { RolesGuard } from 'src/guards/roles.guard';
+import { User, UserSchema } from '../users/dto/users.schema';
+import { Question, QuestionSchema } from '../question/dto/question.schema';
+import { Role, RoleSchema } from '../roles/dto/roles.schema';
+import { Permission, PermissionSchema } from '../permissions/dto/permissions.schema';
+import { AuthGuard } from '../guards/auth.guard';
+import { RolesGuard } from '../guards/roles.guard';
 
 @Module({
     imports: [MongooseModule.forFeature([

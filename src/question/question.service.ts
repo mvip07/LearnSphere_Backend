@@ -1,12 +1,12 @@
 import { Model, Types } from 'mongoose';
 import { InjectModel } from '@nestjs/mongoose';
 import { Injectable, HttpException, HttpStatus } from '@nestjs/common';
-import { User, UsersDocument } from 'src/users/dto/users.schema';
+import { User, UsersDocument } from '../users/dto/users.schema';
 import { Question, QuestionDocument } from './dto/question.schema';
-import { Level, LevelDocument } from 'src/level/dto/level.schema';
-import { Topic, TopicsDocument } from 'src/topics/dto/topics.schema';
-import { Answer, AnswerDocument } from 'src/answer/dto/answer.schema';
-import { Category, CategoryDocument } from 'src/category/dto/category.schema';
+import { Level, LevelDocument } from '../level/dto/level.schema';
+import { Topic, TopicsDocument } from '../topics/dto/topics.schema';
+import { Answer, AnswerDocument } from '../answer/dto/answer.schema';
+import { Category, CategoryDocument } from '../category/dto/category.schema';
 import { CreateQuestionDto, UpdateQuestionDto, PaginatedQuestionsQuery, FilteredQuestionsQuery, QuestionType } from './dto/question.dto';
 
 @Injectable()

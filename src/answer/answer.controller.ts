@@ -1,8 +1,8 @@
 import { Controller, Post, Get, Body, Param, HttpStatus, HttpCode, Delete, UseGuards } from '@nestjs/common';
 import { AnswerService } from './answer.service';
 import { CreateAnswerDto } from './dto/answer.dto';
-import { AuthGuard } from 'src/guards/auth.guard';
-import { RolesGuard } from 'src/guards/roles.guard';
+import { AuthGuard } from '../guards/auth.guard';
+import { RolesGuard } from '../guards/roles.guard';
 
 @Controller('answers')
 @UseGuards(AuthGuard, RolesGuard)

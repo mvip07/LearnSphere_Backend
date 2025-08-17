@@ -4,8 +4,8 @@ import { AuthService } from './auth.service';
 import { PassportModule } from '@nestjs/passport';
 import { GoogleStrategy } from './google.strategy';
 import { MongooseModule } from '@nestjs/mongoose';
-import { User, UserSchema } from 'src/users/dto/users.schema';
-import { Role, RoleSchema } from 'src/roles/dto/roles.schema';
+import { User, UserSchema } from '../users/dto/users.schema';
+import { Role, RoleSchema } from '../roles/dto/roles.schema';
 
 @Module({
     imports: [

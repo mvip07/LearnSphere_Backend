@@ -3,9 +3,9 @@ import { isURL } from 'class-validator';
 import { QuestionService } from './question.service';
 import { PaginatedQuestionsQuery, CreateQuestionDto, FilteredQuestionsQuery, UpdateQuestionDto, QuestionType } from './dto/question.dto';
 import { FileInterceptor, FilesInterceptor } from '@nestjs/platform-express';
-import { uploadToFirebase } from 'src/utils/uploadToFirebase';
-import { AuthGuard } from 'src/guards/auth.guard';
-import { RolesGuard } from 'src/guards/roles.guard';
+import { uploadToFirebase } from '../utils/uploadToFirebase';
+import { AuthGuard } from '../guards/auth.guard';
+import { RolesGuard } from '../guards/roles.guard';
 
 @Controller('question')
 @UseGuards(AuthGuard, RolesGuard)

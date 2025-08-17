@@ -1,8 +1,8 @@
 import { Controller, Post, Get, Put, Delete, Body, Param, HttpCode, HttpStatus, UsePipes, ValidationPipe, UseGuards } from '@nestjs/common';
 import { MessageService } from './messages.service';
 import { CreateMessageDto, UpdateMessageDto } from './dto/messages.dto';
-import { RolesGuard } from 'src/guards/roles.guard';
-import { AuthGuard } from 'src/guards/auth.guard';
+import { RolesGuard } from '../guards/roles.guard';
+import { AuthGuard } from '../guards/auth.guard';
 
 @Controller('messages')
 @UseGuards(AuthGuard, RolesGuard)

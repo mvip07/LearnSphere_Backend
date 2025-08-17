@@ -2,7 +2,7 @@ import { Model, Types } from 'mongoose';
 import { Injectable, HttpException, HttpStatus } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { Message, MessageDocument } from './dto/messages.schema';
-import { User, UsersDocument } from 'src/users/dto/users.schema';
+import { User, UsersDocument } from '../users/dto/users.schema';
 import { CreateMessageDto, UpdateMessageDto } from './dto/messages.dto';
 
 @Injectable()

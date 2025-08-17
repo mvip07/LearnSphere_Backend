@@ -2,7 +2,7 @@ import { Model, Types } from 'mongoose';
 import { Injectable, HttpException, HttpStatus } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { Follow, FollowDocument } from './dto/follow.schema';
-import { User, UsersDocument } from 'src/users/dto/users.schema';
+import { User, UsersDocument } from '../users/dto/users.schema';
 import { FollowUserReq, GetUserFollowStatsReq } from './dto/follow.dto';
 
 @Injectable()

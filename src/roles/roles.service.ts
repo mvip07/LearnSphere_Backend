@@ -2,7 +2,7 @@ import { Model, Types } from 'mongoose';
 import { InjectModel } from '@nestjs/mongoose';
 import { Injectable, HttpException, HttpStatus } from '@nestjs/common';
 import { Role, RolesDocument } from './dto/roles.schema';
-import { Permission, PermissionsDocument } from 'src/permissions/dto/permissions.schema';
+import { Permission, PermissionsDocument } from '../permissions/dto/permissions.schema';
 import { RolesDto, UpdateRolesDto, ChangeHistory, FindAllQueryDto } from './dto/roles.dto';
 
 @Injectable()

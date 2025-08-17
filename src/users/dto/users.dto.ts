@@ -1,7 +1,7 @@
 import { ArrayNotEmpty, IsArray, IsBoolean, IsEmail, IsIn, IsInt, IsNotEmpty, IsOptional, IsString, Matches, MaxLength, Min, MinLength } from 'class-validator';
+import { IsMongoId } from 'class-validator';
 import { Transform } from 'class-transformer';
 import { Match } from '../../decorators/match.decorator';
-import { IsMongoId } from 'class-validator';
 
 export class BaseUserDto {
     @IsString({ message: 'First name must be a string' })

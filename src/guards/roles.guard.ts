@@ -3,9 +3,9 @@ import { Model } from 'mongoose';
 import { Request } from 'express';
 import { Reflector } from '@nestjs/core';
 import { InjectModel } from '@nestjs/mongoose';
-import { User, UsersDocument } from 'src/users/dto/users.schema';
-import { Role, RolesDocument } from 'src/roles/dto/roles.schema';
-import { Permission, PermissionsDocument } from 'src/permissions/dto/permissions.schema';
+import { User, UsersDocument } from '../users/dto/users.schema';
+import { Role, RolesDocument } from '../roles/dto/roles.schema';
+import { Permission, PermissionsDocument } from '../permissions/dto/permissions.schema';
 
 interface CustomRequest extends Request {
     user?: any;

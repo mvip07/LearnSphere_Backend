@@ -1,8 +1,8 @@
 import { Controller, Post, Get, Put, Delete, Body, Param, Query, HttpCode, HttpStatus, UsePipes, ValidationPipe, UseGuards } from '@nestjs/common';
 import { PermissionsService } from './permissions.service';
 import { DeleteMultiplePermissionsDto, FindAllQueryDto, PermissionDto, UpdatePermissionDto } from './dto/permissions.dto';
-import { AuthGuard } from 'src/guards/auth.guard';
-import { RolesGuard } from 'src/guards/roles.guard';
+import { AuthGuard } from '../guards/auth.guard';
+import { RolesGuard } from '../guards/roles.guard';
 
 @Controller('permission')
 @UseGuards(AuthGuard, RolesGuard)

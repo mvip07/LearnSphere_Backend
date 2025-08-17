@@ -1,9 +1,9 @@
 import { Get, Put, Body, Post, Query, Param, Delete, UsePipes, HttpCode, Controller, HttpStatus, UploadedFile, ValidationPipe, UseInterceptors, UseGuards } from '@nestjs/common';
 import { FileInterceptor } from '@nestjs/platform-express';
-import { uploadToFirebase } from 'src/utils/uploadToFirebase';
+import { uploadToFirebase } from '../utils/uploadToFirebase';
 import { CategoryService } from './category.service';
-import { AuthGuard } from 'src/guards/auth.guard';
-import { RolesGuard } from 'src/guards/roles.guard';
+import { AuthGuard } from '../guards/auth.guard';
+import { RolesGuard } from '../guards/roles.guard';
 import { CategoryDto, FindAllQueryDto, UpdateCategoryDto } from './dto/category.dto';
 
 @Controller('category')

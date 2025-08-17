@@ -2,8 +2,8 @@ import { Model, Types } from 'mongoose';
 import { InjectModel } from '@nestjs/mongoose';
 import { Injectable, BadRequestException, NotFoundException, HttpException, HttpStatus } from '@nestjs/common';
 import { Answer, AnswerDocument } from './dto/answer.schema';
-import { User, UsersDocument } from 'src/users/dto/users.schema';
-import { Question, QuestionDocument } from 'src/question/dto/question.schema';
+import { User, UsersDocument } from '../users/dto/users.schema';
+import { Question, QuestionDocument } from '../question/dto/question.schema';
 import { CreateAnswerDto, PopulatedAnswer } from './dto/answer.dto';
 
 @Injectable()

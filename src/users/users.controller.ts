@@ -2,11 +2,11 @@ import { Get, Put, Post, Body, Param, Query, Delete, HttpCode, UsePipes, HttpSta
 import { FileInterceptor } from '@nestjs/platform-express';
 import { UserService } from './users.service';
 import { AllUsersWithStatsPropsDto, CreateUserDto, DeleteMultipleUsersDto, UpdateDto, UpdateUserForAdminDto } from './dto/users.dto';
-import { uploadToFirebase } from 'src/utils/uploadToFirebase';
-import { AuthService } from 'src/auth/auth.service';
+import { uploadToFirebase } from '../utils/uploadToFirebase';
+import { AuthService } from '../auth/auth.service';
 import { Response } from 'express';
-import { AuthGuard } from 'src/guards/auth.guard';
-import { RolesGuard } from 'src/guards/roles.guard';
+import { AuthGuard } from '../guards/auth.guard';
+import { RolesGuard } from '../guards/roles.guard';
 
 @Controller('user')
 @UseGuards(AuthGuard, RolesGuard)

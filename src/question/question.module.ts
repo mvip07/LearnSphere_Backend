@@ -3,15 +3,15 @@ import { MongooseModule } from '@nestjs/mongoose';
 import { QuestionService } from './question.service';
 import { QuestionController } from './question.controller';
 import { Question, QuestionSchema } from './dto/question.schema';
-import { Level, LevelSchema } from 'src/level/dto/level.schema';
-import { Category, CategorySchema } from 'src/category/dto/category.schema';
-import { Topic, TopicSchema } from 'src/topics/dto/topics.schema';
-import { Answer, AnswerSchema } from 'src/answer/dto/answer.schema';
-import { User, UserSchema } from 'src/users/dto/users.schema';
-import { Role, RoleSchema } from 'src/roles/dto/roles.schema';
-import { Permission, PermissionSchema } from 'src/permissions/dto/permissions.schema';
-import { AuthGuard } from 'src/guards/auth.guard';
-import { RolesGuard } from 'src/guards/roles.guard';
+import { Level, LevelSchema } from '../level/dto/level.schema';
+import { Category, CategorySchema } from '../category/dto/category.schema';
+import { Topic, TopicSchema } from '../topics/dto/topics.schema';
+import { Answer, AnswerSchema } from '../answer/dto/answer.schema';
+import { User, UserSchema } from '../users/dto/users.schema';
+import { Role, RoleSchema } from '../roles/dto/roles.schema';
+import { Permission, PermissionSchema } from '../permissions/dto/permissions.schema';
+import { AuthGuard } from '../guards/auth.guard';
+import { RolesGuard } from '../guards/roles.guard';
 
 @Module({
     imports: [

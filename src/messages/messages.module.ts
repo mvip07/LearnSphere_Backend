@@ -3,12 +3,12 @@ import { MongooseModule } from '@nestjs/mongoose';
 import { MessageService } from './messages.service';
 import { MessageController } from './messages.controller';
 import { Message, MessageSchema } from './dto/messages.schema';
-import { User, UserSchema } from 'src/users/dto/users.schema';
-import { ChatGateway } from 'src/chat/chat.geteway';
-import { Role, RoleSchema } from 'src/roles/dto/roles.schema';
-import { Permission, PermissionSchema } from 'src/permissions/dto/permissions.schema';
-import { AuthGuard } from 'src/guards/auth.guard';
-import { RolesGuard } from 'src/guards/roles.guard';
+import { User, UserSchema } from '../users/dto/users.schema';
+import { ChatGateway } from '../chat/chat.geteway';
+import { Role, RoleSchema } from '../roles/dto/roles.schema';
+import { Permission, PermissionSchema } from '../permissions/dto/permissions.schema';
+import { AuthGuard } from '../guards/auth.guard';
+import { RolesGuard } from '../guards/roles.guard';
 
 @Module({
     imports: [

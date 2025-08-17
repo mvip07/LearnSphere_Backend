@@ -1,8 +1,8 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
 import { HydratedDocument, Types, Schema as MongooseSchema } from 'mongoose';
-import { Level } from 'src/level/dto/level.schema';
-import { Topic } from 'src/topics/dto/topics.schema';
-import { Category } from 'src/category/dto/category.schema';
+import { Level } from '../../level/dto/level.schema';
+import { Topic } from '../../topics/dto/topics.schema';
+import { Category } from '../../category/dto/category.schema';
 import { QuestionType } from './question.dto';
 
 export type QuestionDocument = HydratedDocument<Question>;

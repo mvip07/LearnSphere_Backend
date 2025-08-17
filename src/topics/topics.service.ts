@@ -2,7 +2,7 @@ import { Model, Types } from 'mongoose';
 import { InjectModel } from '@nestjs/mongoose';
 import { Injectable, HttpException, HttpStatus } from '@nestjs/common';
 import { Topic, TopicsDocument } from './dto/topics.schema';
-import { Category, CategoryDocument } from 'src/category/dto/category.schema';
+import { Category, CategoryDocument } from '../category/dto/category.schema';
 import { ChangeHistory, TopicsDto, TopicsQueryDto, UpdateTopicsDto } from './dto/topics.dto';
 
 @Injectable()
