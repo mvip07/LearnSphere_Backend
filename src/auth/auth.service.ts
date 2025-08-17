@@ -1,6 +1,6 @@
+import Mailgen from 'mailgen';
 import * as crypto from 'crypto';
 import * as bcrypt from 'bcryptjs';
-import * as Mailgen from 'mailgen';
 import * as jwt from 'jsonwebtoken';
 import * as nodemailer from 'nodemailer';
 import { Model, Types } from 'mongoose';
