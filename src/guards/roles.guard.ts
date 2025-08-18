@@ -42,8 +42,8 @@ export class RolesGuard implements CanActivate {
         const allPermissions: string[] = permissions.map(p => p.path);
         const requestPath = req.route?.path || req.url;
         const frontendPath = (req.headers['frontend-path'] as string || '').replace(/^\/(uz|ru|en)(?=\/|$)/, '').replace(/\/[0-9a-fA-F]{24}(?=\/|$)/, '/:id') || '/';
-
-        const matched = allPermissions.includes(requestPath) && allPermissions.includes(frontendPath) && allPermissions.includes("/question/multiple-create")
+       
+        const matched = allPermissions.includes(requestPath) && allPermissions.includes(frontendPath)
         if (!matched) {
             throw new ForbiddenException(`Access denied for route: ${requestPath}`);
         }
