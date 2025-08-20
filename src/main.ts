@@ -13,7 +13,7 @@ async function bootstrap() {
         const configService = app.get(ConfigService);
 
         app.enableCors({
-            origin: [process.env.FRONTEND_URL],
+            origin: [process.env.FRONTEND_URL, "http://localhost:3000"],
             methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
             credentials: true,
         });
@@ -79,7 +79,6 @@ async function bootstrap() {
 
         const port = process.env.PORT || configService.get<number>('PORT') || 8000;
         await app.listen(port);
-        console.log(`🚀 Server running on port ${port}`);
     } catch (err) {
         console.error('❌ Bootstrapda xato:', err);
     }
