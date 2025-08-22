@@ -2,7 +2,11 @@ import { WebSocketGateway, WebSocketServer, SubscribeMessage, MessageBody, Conne
 import { Server, Socket } from 'socket.io';
 import { MessageService } from '../messages/messages.service';
 
-@WebSocketGateway({ cors: true })
+@WebSocketGateway({
+    cors: {
+        origin: ["http://localhost:3000", process.env.FRONTEND_URL], credentials: true,
+    },
+})
 export class ChatGateway {
     @WebSocketServer()
     server: Server;
