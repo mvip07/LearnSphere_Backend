@@ -84,7 +84,6 @@ async function bootstrapServer() {
   return cachedServer;
 }
 
-// 🔥 ENG MUHIM JOY
 export default async function handler(req, res) {
   const server = await bootstrapServer();
   return server(req, res);
